@@ -7,8 +7,8 @@ const write = () => {
   const input = document.getElementById('input');
   const output = document.getElementById('output');
   const s = input.value;
-  const nodes = convert(s);
-  output.value = nodes;
+  const notes = convert(s);
+  output.value = notes;
 };
 
 const copyStr = () => {
@@ -20,6 +20,15 @@ const clearStr = () => {
   const input = document.getElementById('input');
   input.value = '';
   write();
+};
+
+const incertNote = () => {
+  const dongList = document.querySelectorAll('.dong');
+  Array.from(dongList).forEach(e => { e.innerText = dong; });
+  const kaList = document.querySelectorAll('.ka');
+  Array.from(kaList).forEach(e => { e.innerText = ka; });
+  const spaceList = document.querySelectorAll('.space');
+  Array.from(spaceList).forEach(e => { e.innerText = space; });
 };
 
 /**
@@ -47,6 +56,7 @@ const copy = s => {
 // 読み込み完了時の処理
 window.addEventListener('load', () => {
   document.getElementById('input').addEventListener('input', write);
-  document.getElementById('copy-button').addEventListener('click', copyStr)
-  document.getElementById('clear-button').addEventListener('click', clearStr)
+  document.getElementById('copy-button').addEventListener('click', copyStr);
+  document.getElementById('clear-button').addEventListener('click', clearStr);
+  incertNote();
 });
